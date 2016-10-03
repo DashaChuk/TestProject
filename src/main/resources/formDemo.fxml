@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.Group?>
+
+<GridPane alignment="center" hgap="10" prefHeight="546.0" prefWidth="726.0" vgap="10" xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="DelphiToCs.FormDemo">
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
+    <children>
+        <TabPane prefHeight="489.0" prefWidth="604.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1"
+                 GridPane.rowIndex="1">
+            <tabs>
+                <Tab text="Welcome Info">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0">
+                            <children>
+                                <TextArea id="WelcomeMemo" layoutX="84.0" layoutY="111.0" prefHeight="59.0"
+                                          prefWidth="517.0"
+                                          text="This demo demonstrates the migration process&#10; of Delphi project to CS.">
+                                    <font>
+                                        <Font name="Tahoma" size="20.0"/>
+                                    </font>
+                                </TextArea>
+                                <TextArea layoutX="406.0" layoutY="311.0" prefHeight="94.0" prefWidth="255.0"
+                                          text="Ispirer Systems Ltd.&#10;Belarus, Headquarters&#10;2B-326 Bedy Str., Minsk, 220040&#10;www.ispirer.com"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Sales">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Button fx:id="Find" layoutX="14.0" layoutY="295.0" mnemonicParsing="false"
+                                        onAction="#buttonFindClick" text="Find"/>
+                                <Button fx:id="Update" layoutX="72.0" layoutY="295.0" mnemonicParsing="false"
+                                        onAction="#buttonUpdateClick" text="Update"/>
+                                <Button fx:id="Add" layoutX="132.0" layoutY="295.0" mnemonicParsing="false"
+                                        onAction="#buttonAddClick" text="Add"/>
+                                <Button fx:id="Delete" layoutX="191.0" layoutY="295.0" mnemonicParsing="false"
+                                        onAction="#buttonDeleteClick" text="Delete"/>
+                                <Button fx:id="Clear" layoutX="250.0" layoutY="295.0" mnemonicParsing="false"
+                                        onAction="#buttonClearClick" text="Clear"/>
+                                <Label id="YearEdit" layoutX="32.0" layoutY="127.0" text="June"/>
+                                <Label layoutX="27.0" layoutY="84.0" prefHeight="19.0" prefWidth="35.0" text="March">
+                                    <opaqueInsets>
+                                        <Insets/>
+                                    </opaqueInsets>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT"/>
+                                    </cursor>
+                                </Label>
+                                <Label layoutX="32.0" layoutY="39.0" text="Year"/>
+                                <TextField fx:id="yearEdit" layoutX="83.0" layoutY="35.0">
+                                    <cursor>
+                                        <Cursor fx:constant="TEXT"/>
+                                    </cursor>
+                                </TextField>
+                                <TextField fx:id="march" layoutX="83.0" layoutY="81.0">
+                                    <cursor>
+                                        <Cursor fx:constant="TEXT"/>
+                                    </cursor>
+                                </TextField>
+                                <TextField fx:id="june" layoutX="83.0" layoutY="123.0">
+                                    <cursor>
+                                        <Cursor fx:constant="TEXT"/>
+                                    </cursor>
+                                </TextField>
+                                <TextField fx:id="september" layoutX="83.0" layoutY="165.0">
+                                    <cursor>
+                                        <Cursor fx:constant="TEXT"/>
+                                    </cursor>
+                                </TextField>
+                                <TextField fx:id="december" layoutX="83.0" layoutY="204.0">
+                                    <cursor>
+                                        <Cursor fx:constant="TEXT"/>
+                                    </cursor>
+                                </TextField>
+                                <Label layoutX="15.0" layoutY="169.0" text="September"/>
+                                <Label layoutX="17.0" layoutY="208.0" text="December"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Sales Info">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="416.0" prefWidth="604.0">
+                            <children>
+                                <TextField fx:id="ID" layoutX="68.0" layoutY="22.0" visible="false"/>
+                                <TextField fx:id="phone" layoutX="68.0" layoutY="56.0"/>
+                                <TextField fx:id="street" layoutX="310.0" layoutY="56.0" prefHeight="25.0"
+                                           prefWidth="313.0"/>
+                                <Label layoutX="26.0" layoutY="26.0" text="ID" visible="false"/>
+                                <Label layoutX="26.0" layoutY="60.0" text="Phone"/>
+                                <Label layoutX="269.0" layoutY="60.0" text="Street"/>
+                                <DatePicker fx:id="datePicker" layoutX="68.0" layoutY="81.0"/>
+                                <Label layoutX="29.0" layoutY="85.0" text="Date"/>
+                                <LineChart fx:id="chart" layoutY="113.0" prefHeight="240.0" prefWidth="650.0">
+                                    <xAxis>
+                                        <CategoryAxis side="BOTTOM"/>
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis side="LEFT"/>
+                                    </yAxis>
+                                </LineChart>
+                                <Button fx:id="ButtonUpdate" onAction="#buttonUpdate" layoutX="521.0" layoutY="81.0"
+                                        mnemonicParsing="false" text="Show Report"/>
+                                <TableView fx:id="table" onMouseClicked="#onTableAction" layoutX="36.0" layoutY="348.0"
+                                           prefHeight="63.0" prefWidth="606.0"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Button fx:id="buttonOk" layoutX="626.0" mnemonicParsing="false" onAction="#buttonOkClick" text="Exit"
+                GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets left="626.0"/>
+            </GridPane.margin>
+        </Button>
+    </children>
+</GridPane>
