@@ -164,12 +164,12 @@ public class FormDemo {
         stage.close();
     }
 
-    private void checkInformation() {
+    private void checkInformation(String message) {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         Button butt = new Button("Ok.");
         butt.setOnAction((ActionEvent e) -> stage.close());
-        stage.setScene(new Scene(VBoxBuilder.create().children(new Text("Please, check the information."), butt).
+        stage.setScene(new Scene(VBoxBuilder.create().children(new Text(message), butt).
                 alignment(Pos.CENTER).padding(new Insets(5)).build()));
         stage.show();
     }
@@ -184,12 +184,12 @@ public class FormDemo {
                     june.setText(set.getString("june"));
                     september.setText(set.getString("september"));
                     december.setText(set.getString("december"));
-                }
+                }else buttonClearClick();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            checkInformation();
+            checkInformation("Please check the information.");
         }
     }
 
@@ -207,10 +207,11 @@ public class FormDemo {
         if (!yearEdit.getText().isEmpty() && !june.getText().isEmpty() && !march.getText().isEmpty() && !december.getText().isEmpty() && !september.getText().isEmpty()) {
             try {
                 dataDemo.executeUpdate("Insert into DemoValues values(" + maxId() + "," + yearEdit.getText() + "," + march.getText() + "," + june.getText() + "," + september.getText() + "," + december.getText() + ")");
+                checkInformation("The record is added.");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else checkInformation();
+        } else checkInformation("Please check the information.");
     }
 
     @FXML
@@ -218,11 +219,12 @@ public class FormDemo {
         if (!yearEdit.getText().isEmpty()) {
             try {
                 dataDemo.executeUpdate("Delete * From DemoValues Where year = " + yearEdit.getText());
+                checkInformation("The record is deleted.");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            checkInformation();
+            checkInformation("Please check the information.");
         }
     }
 
@@ -231,10 +233,11 @@ public class FormDemo {
         if (!yearEdit.getText().isEmpty() && !june.getText().isEmpty() && !march.getText().isEmpty() && !december.getText().isEmpty() && !september.getText().isEmpty()) {
             try {
                 dataDemo.executeUpdate("Update  DemoValues  Set march = " + march.getText() + ",june=" + june.getText() + ",september=" + september.getText() + ",december=" + december.getText() + " Where Year = " + yearEdit.getText());
+                checkInformation("The record is updated.");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else checkInformation();
+        } else checkInformation("Please check the information.");
     }
 
     private Integer maxId() {
